@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 export const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between sticky z-10 w-full py-4 px-8 text-sm">
+    <nav className="flex items-center justify-between sticky top-0 z-10 w-full py-4 px-8 text-sm">
       <ul className="flex items-center gap-3">
         <li className="font-semibold text-lg">
           <NavLink to="/">Shopi</NavLink>

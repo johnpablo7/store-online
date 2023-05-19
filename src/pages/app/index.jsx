@@ -1,32 +1,25 @@
-import { useRoutes, BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Layout } from "../../layouts";
 import Home from "../home";
 import MyAccount from "../my-account";
-import MyOrder from "../my-order";
 import MyOrders from "../my-orders";
-import NotFound from "../not-found";
+import MyOrder from "../my-order";
 import SignIn from "../sign-in";
-import { Navbar } from "../../components/Navbar";
+import NotFound from "../not-found";
 
-const AppRoutes = () => {
-  let routes = useRoutes([
-    { path: "/", element: <Home /> },
-    { path: "/my-account", element: <MyAccount /> },
-    { path: "/my-order", element: <MyOrder /> },
-    { path: "/my-orders", element: <MyOrders /> },
-    { path: "/sign-in", element: <SignIn /> },
-    { path: "/*", element: <NotFound /> },
-  ]);
-
-  return routes;
-};
-
-const App = () => {
+export const App = () => {
   return (
     <BrowserRouter>
-      <AppRoutes />
-      <Navbar />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/my-account" element={<MyAccount />} />
+          <Route path="/my-orders" element={<MyOrders />} />
+          <Route path="/my-order" element={<MyOrder />} />
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 };
-
-export default App;
