@@ -47,9 +47,4 @@ export const menu2 = [
     link: "Sign in",
     to: "/sign-in",
   },
-  {
-    id: 4,
-    link: "🛒0",
-    to: "/shopp-car",
-  },
 ];
