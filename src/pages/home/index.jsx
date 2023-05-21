@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Card } from "../../components/Card";
 import { apiUrl } from "../../api";
 import { ProductDetail } from "../../components/ProductDetail";
+import { CheckoutSideMenu } from "../../components/CheckoutSideMenu";
 
 function Home() {
   const [items, setItems] = useState(null);
@@ -28,6 +29,7 @@ function Home() {
         ))}
       </div>
       <ProductDetail />
+      <CheckoutSideMenu />
     </>
   );
 }

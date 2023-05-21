@@ -1,5 +1,5 @@
-import { MdOutlineClose } from "react-icons/md";
 import { useContext } from "react";
+import { MdOutlineClose } from "react-icons/md";
 import { ShoppingCartContext } from "../context";
 import clsx from "clsx";
 
@@ -16,10 +16,7 @@ export const ProductDetail = () => {
         context.isProductDetailOpen ? "flex" : "hidden"
       )}
     >
-      <div
-        // onClick={context.toggleProductDetail}
-        className="flex justify-between items-center p-4"
-      >
+      <div className="flex justify-between items-center p-4">
         <h2 className="text-2xl font-semibold">Product Details</h2>
         <div
           onClick={context.toggleProductDetail}
@@ -31,11 +28,11 @@ export const ProductDetail = () => {
       <figure className="px-4">
         <img
           className="w-full h-full rounded-lg"
-          src={context.productToShow.images[0]}
+          src={context.productToShow.images}
           alt={context.productToShow.title}
         />
       </figure>
-      <p className="flex flex-col p-4">
+      <div className="flex flex-col p-4">
         <div className="flex items-center justify-between mb-2">
           <span className="text-xl font-semibold">
             {context.productToShow.title}
@@ -45,7 +42,7 @@ export const ProductDetail = () => {
           </span>
         </div>
         <span className="text-sm">{context.productToShow.description}</span>
-      </p>
+      </div>
     </aside>
   );
 };
