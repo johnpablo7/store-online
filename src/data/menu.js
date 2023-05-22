@@ -39,11 +39,16 @@ export const menu2 = [
   },
   {
     id: 2,
+    link: "My Wish List",
+    to: "/wish-list",
+  },
+  {
+    id: 3,
     link: "My Account",
     to: "/my-account",
   },
   {
-    id: 3,
+    id: 4,
     link: "Sign in",
     to: "/sign-in",
   },

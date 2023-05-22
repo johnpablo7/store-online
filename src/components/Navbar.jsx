@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ShoppingCartContext } from "../context";
+import { ShoppingCartContext } from "../context/cart";
 import { NavLink } from "react-router-dom";
 import { menu1, menu2 } from "../data/menu";
 import { MdOutlineShoppingCart } from "react-icons/md";
