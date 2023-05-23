@@ -1,5 +1,5 @@
 import { MdOutlineClose } from "react-icons/md";
-import { QuantityInput } from "../client/QuantityInput";
+import { QuantityInput } from "./shared/QuantityInput";
 
 export const OrderCard = (props) => {
   const { id, title, imageUrl, price, handleDelete } = props;

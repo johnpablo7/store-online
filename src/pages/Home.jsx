@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Card } from "../components/Card";
 import { apiUrl } from "../api";
+import { Card } from "../components/Card";
 import { ProductDetail } from "../components/ProductDetail";
-import { CheckoutSideMenu } from "../components/CheckoutSideMenu";
-import { CheckoutWishList } from "../components/CheckoutWishList";
+import { MyOrderCart } from "../components/MyOrderCart";
+import { MyWishListCart } from "../components/MyWishListCart";
 
 export const Home = () => {
   const [items, setItems] = useState(null);
@@ -30,8 +30,8 @@ export const Home = () => {
         ))}
       </div>
       <ProductDetail />
-      <CheckoutSideMenu />
-      <CheckoutWishList />
+      <MyOrderCart />
+      <MyWishListCart />
     </>
   );
 };

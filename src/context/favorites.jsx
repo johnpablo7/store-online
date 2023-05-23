@@ -11,8 +11,8 @@ export const FavoriteProvider = ({ children }) => {
 
   // Checkout Wish List . Open/Close
   const [isCheckoutWishListOpen, setIsCheckoutWishListOpen] = useState(false);
-  const toggleWishListSideMenu = () =>
-    setIsCheckoutWishListOpen(!isCheckoutWishListOpen);
+  const openWishList = () => setIsCheckoutWishListOpen(true);
+  const closeWishList = () => setIsCheckoutWishListOpen(false);
 
   return (
     <FavoriteContext.Provider
@@ -22,8 +22,10 @@ export const FavoriteProvider = ({ children }) => {
 
         wishListProducts,
         setWishListProducts,
+
         isCheckoutWishListOpen,
-        toggleWishListSideMenu,
+        openWishList,
+        closeWishList,
       }}
     >
       {children}

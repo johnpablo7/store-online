@@ -4,7 +4,7 @@ import { WishListCard } from "./WishListCard";
 import { FavoriteContext } from "../context/favorites";
 import clsx from "clsx";
 
-export const CheckoutWishList = () => {
+export const MyWishListCart = () => {
   const favorite = useContext(FavoriteContext);
 
   return (
@@ -17,7 +17,7 @@ export const CheckoutWishList = () => {
       <div className="flex items-center justify-between p-4">
         <h2 className="text-2xl font-semibold">My Wish List</h2>
         <div
-          onClick={favorite.toggleWishListSideMenu}
+          onClick={() => favorite.closeWishList()}
           className="p-1 rounded-full bg-red-500 hover:bg-red-700 text-xl cursor-pointer text-white"
         >
           <MdOutlineClose />

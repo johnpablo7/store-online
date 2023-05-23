@@ -20,6 +20,7 @@ export const QuantityInput = () => {
 
       <button
         // onClick={() => increase()}
+
         className="py-[2px] px-3 border border-opacity-20 text-xl text-gray-400 hover:bg-stone-200"
       >
         +

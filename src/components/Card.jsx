@@ -10,8 +10,10 @@ export const Card = ({ data }) => {
   const favorite = useContext(FavoriteContext);
 
   const showProduct = (productDetail) => {
-    context.toggleProductDetail();
+    context.openProductDetail();
     context.setProductToShow(productDetail);
+
+    context.closeOrderCart();
   };
 
   // Product Cart
@@ -19,9 +21,9 @@ export const Card = ({ data }) => {
     event.stopPropagation();
     context.setCount(context.count + 1);
     context.setCartProducts([...context.cartProducts, productData]);
+    context.openOrderCart();
 
-    context.toggleCheckoutSideMenu();
-    context.toggleProductDetail();
+    context.closeProductDetail();
     // console.log("Cart:", context.cartProducts);
   };
 
@@ -30,8 +32,10 @@ export const Card = ({ data }) => {
     event.stopPropagation();
     favorite.setCountWishList(favorite.countWishList + 1);
     favorite.setWishListProducts([...favorite.wishListProducts, listData]);
+    favorite.openWishList();
 
-    favorite.toggleWishListSideMenu();
+    context.closeProductDetail();
+    context.closeOrderCart();
   };
 
   const renderIconWishList = (id) => {

@@ -10,14 +10,14 @@ export const ProductDetail = () => {
   return (
     <aside
       className={clsx(
-        `flex-col fixed top-[60px] right-0 border bg-white shadow-md rounded-md w-[360px] h-[calc(64vh-64px)] transition-all`,
+        `flex-col fixed top-[60px] right-0 border bg-white shadow-md rounded-md w-[360px] h-[calc(64vh-64px)] transition-all duration-500`,
         context.isProductDetailOpen ? "flex" : "hidden"
       )}
     >
       <div className="flex justify-between items-center p-4">
         <h2 className="text-2xl font-semibold">Product Details</h2>
         <div
-          onClick={context.toggleProductDetail}
+          onClick={() => context.closeProductDetail()}
           className="p-1 rounded-full bg-red-500 hover:bg-red-700 text-xl cursor-pointer text-white"
         >
           <MdOutlineClose />

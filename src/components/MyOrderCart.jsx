@@ -4,8 +4,9 @@ import { ShoppingCartContext } from "../context/cart";
 import clsx from "clsx";
 import { OrderCard } from "./OrderCard";
 import { Link } from "react-router-dom";
+import { totalPrice } from "../utils";
 
-export const CheckoutSideMenu = () => {
+export const MyOrderCart = () => {
   const context = useContext(ShoppingCartContext);
   // console.log("Cart:", context.cartProducts);
 
@@ -20,14 +21,14 @@ export const CheckoutSideMenu = () => {
     <aside
       className={clsx(
         `flex-col fixed top-[60px] right-0 border bg-white shadow-md rounded-md w-[360px] transition-all h-[calc(64vh-64px)] p-4 justify-between`,
-        context.isCheckoutSideMenuOpen ? "flex" : "hidden"
+        context.isOrderCartOpen ? "flex" : "hidden"
       )}
     >
       <div>
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-2xl font-semibold">My Order</h2>
           <div
-            onClick={context.toggleCheckoutSideMenu}
+            onClick={() => context.closeOrderCart()}
             className="p-1 rounded-full bg-red-500 hover:bg-red-700 text-xl cursor-pointer text-white transition-colors"
           >
             <MdOutlineClose />
@@ -52,10 +53,10 @@ export const CheckoutSideMenu = () => {
         <div className="border-t border-[#E9E4E4] opacity-80 my-2" />
 
         <div className="flex items-center justify-between px-2 mb-2">
-          <div className="font-semibold text-lg uppercase">Total</div>
+          <div className="font-semibold text-lg uppercase">Total:</div>
           <div className="flex items-center justify-center gap-1 text-red-500 font-semibold text-lg">
             <span>s/</span>
-            <p className="pr-12">85.00</p>
+            <p className="pr-12">{totalPrice(context.cartProducts)}</p>
           </div>
         </div>
         <Link

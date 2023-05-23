@@ -6,7 +6,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import clsx from "clsx";
 
 export const Navbar = () => {
-  const { count } = useContext(ShoppingCartContext);
+  const context = useContext(ShoppingCartContext);
 
   return (
     <nav className="flex items-center justify-between sticky bg-white top-0 z-10 w-full py-4 px-8 text-sm">
@@ -58,7 +58,7 @@ export const Navbar = () => {
           <NavLink to="/my-orders" className="flex items-center gap-1">
             <MdOutlineShoppingCart className="text-2xl" />
             <span className="px-[7px] py-[1px] bg-green-500 rounded-full text-white font-semibold">
-              {count}
+              {context.cartProducts.length}
             </span>
           </NavLink>
         </li>
