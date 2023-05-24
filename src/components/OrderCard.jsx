@@ -5,8 +5,8 @@ export const OrderCard = (props) => {
   const { id, title, imageUrl, price, handleDelete } = props;
 
   return (
-    <div className="flex flex-col justify-between">
-      <div className="grid grid-cols-3 py-3">
+    <div className="flex flex-col">
+      <div className="grid grid-cols-3 p-4">
         <div className="grid grid-cols-3 items-center col-span-2 gap-8">
           <figure className="w-16 h-16">
             <img
@@ -22,12 +22,14 @@ export const OrderCard = (props) => {
         </div>
 
         <div className="flex flex-col items-center justify-center p-2 gap-1">
-          <button
-            onClick={() => handleDelete(id)}
-            className="text-lg cursor-pointer bg-slate-200 hover:bg-red-500 hover:text-white transition-colors rounded-full p-1"
-          >
-            <MdOutlineClose />
-          </button>
+          {handleDelete && (
+            <button
+              onClick={() => handleDelete(id)}
+              className="text-lg cursor-pointer bg-slate-200 hover:bg-red-500 hover:text-white transition-colors rounded-full p-1"
+            >
+              <MdOutlineClose />
+            </button>
+          )}
 
           <div className="flex items-center justify-center gap-1 text-red-500 font-semibold text-lg mb-1">
             <span>s/</span>

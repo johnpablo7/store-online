@@ -1,10 +1,10 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { MdOutlineClose } from "react-icons/md";
 import { ShoppingCartContext } from "../context/cart";
-import clsx from "clsx";
 import { OrderCard } from "./OrderCard";
-import { Link } from "react-router-dom";
 import { totalPrice } from "../utils";
+import clsx from "clsx";
 
 export const MyOrderCart = () => {
   const context = useContext(ShoppingCartContext);
@@ -17,6 +17,18 @@ export const MyOrderCart = () => {
     context.setCartProducts(filteredProducts);
   };
 
+  const handleCheckout = () => {
+    const orderToAdd = {
+      date: "01.02.23",
+      product: context.cartProducts,
+      totalProducts: context.cartProducts.length,
+      totalPrice: totalPrice(context.cartProducts),
+    };
+
+    context.setOrder([...context.order, orderToAdd]);
+    context.setCartProducts([]);
+  };
+
   return (
     <aside
       className={clsx(
@@ -26,7 +38,7 @@ export const MyOrderCart = () => {
     >
       <div>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-semibold">My Order</h2>
+          <h2 className="text-2xl font-semibold">My Orders Cart</h2>
           <div
             onClick={() => context.closeOrderCart()}
             className="p-1 rounded-full bg-red-500 hover:bg-red-700 text-xl cursor-pointer text-white transition-colors"
@@ -35,7 +47,7 @@ export const MyOrderCart = () => {
           </div>
         </div>
 
-        <div className="overflow-scroll h-[360px]">
+        <div className="overflow-scroll h-[350px]">
           {context.cartProducts.map((product) => (
             <OrderCard
               key={product.id}
@@ -59,11 +71,14 @@ export const MyOrderCart = () => {
             <p className="pr-12">{totalPrice(context.cartProducts)}</p>
           </div>
         </div>
-        <Link
-          to="/checkout"
-          className="flex items-center justify-center bg-red-500 text-white hover:text-red-500 hover:bg-white border hover:border-red-500 w-full py-2 rounded transition"
-        >
-          <p className="text-lg uppercase">proccees to checkout</p>
+
+        <Link to="/my-orders/last">
+          <button
+            onClick={() => handleCheckout()}
+            className="flex items-center justify-center bg-red-500 text-white hover:text-red-500 hover:bg-white border hover:border-red-500 w-full py-2 rounded transition text-lg uppercase"
+          >
+            proccees to checkout
+          </button>
         </Link>
       </div>
     </aside>
