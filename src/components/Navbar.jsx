@@ -18,6 +18,7 @@ export const Navbar = () => {
           <li key={list.id}>
             <NavLink
               to={list.to}
+              onClick={() => context.setSearchByCategory(list.category)}
               className={({ isActive }) =>
                 clsx(
                   "px-3 border",

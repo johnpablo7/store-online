@@ -6,28 +6,33 @@ export const menu1 = [
   },
   {
     id: 2,
-    link: "Clothes",
-    to: "/clothes",
+    link: "Electronics",
+    to: "/electronics",
+    category: "electronics",
   },
   {
     id: 3,
-    link: "Electronics",
-    to: "/electronics",
+    link: "Jewelery",
+    to: "/jewelery",
+    category: "jewelery",
   },
   {
     id: 4,
-    link: "Furniture",
-    to: "/furniture",
+    link: "Men's",
+    to: "/men's clothing",
+    category: "men's clothing",
   },
   {
     id: 5,
-    link: "Toys",
-    to: "/toys",
+    link: "Women's",
+    to: "/women's clothing",
+    category: "women's clothing",
   },
   {
     id: 6,
     link: "Others",
     to: "/others",
+    category: "others",
   },
 ];
 
