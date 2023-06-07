@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { MdOutlineClose } from "react-icons/md";
-import { ShoppingCartContext } from "../context/cart";
+import { ShoppingCartContext } from "../context";
 import { OrderCard } from "./OrderCard";
 import { totalPrice } from "../utils";
 import clsx from "clsx";

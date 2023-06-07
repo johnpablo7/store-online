@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { OrdersCard } from "../components/OrdersCard";
-import { ShoppingCartContext } from "../context/cart";
+import { ShoppingCartContext } from "../context";
 import { Link } from "react-router-dom";
 
 export const MyOrders = () => {

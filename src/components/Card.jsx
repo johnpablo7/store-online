@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ShoppingCartContext } from "../context/cart";
+import { ShoppingCartContext } from "../context";
 import { MdOutlineAdd } from "react-icons/md";
 import { VscHeart } from "react-icons/vsc";
 import { FavoriteContext } from "../context/favorites";

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { MdOutlineClose } from "react-icons/md";
-import { ShoppingCartContext } from "../context/cart";
+import { ShoppingCartContext } from "../context";
 import clsx from "clsx";
 
 export const ProductDetail = () => {

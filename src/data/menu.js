@@ -28,12 +28,6 @@ export const menu1 = [
     to: "/women's clothing",
     category: "women's clothing",
   },
-  {
-    id: 6,
-    link: "Others",
-    to: "/others",
-    category: "others",
-  },
 ];
 
 export const menu2 = [
@@ -51,10 +45,5 @@ export const menu2 = [
     id: 3,
     link: "My Account",
     to: "/my-account",
-  },
-  {
-    id: 4,
-    link: "Sign in",
-    to: "/sign-in",
   },
 ];

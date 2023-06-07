@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ShoppingCartProvider } from "../../context/cart";
+import { ShoppingCartProvider } from "../../context";
 import { FavoriteProvider } from "../../context/favorites";
 import { Layout } from "../../layouts";
 
@@ -22,14 +22,13 @@ export const App = () => {
               <Route path="/jewelery" element={<Home />} />
               <Route path="/men's clothing" element={<Home />} />
               <Route path="/women's clothing" element={<Home />} />
-              <Route path="/others" element={<Home />} />
 
               <Route path="/my-account" element={<MyAccount />} />
               <Route path="/my-order" element={<MyOrder />} />
-              <Route path="/sign-in" element={<SignIn />} />
               <Route path="/my-orders" element={<MyOrders />} />
               <Route path="/my-orders/last" element={<MyOrder />} />
               <Route path="/my-orders/:id" element={<MyOrder />} />
+              <Route path="/sign-in" element={<SignIn />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

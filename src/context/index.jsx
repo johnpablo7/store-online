@@ -3,7 +3,35 @@ import { apiUrl } from "../api";
 
 export const ShoppingCartContext = createContext();
 
+// eslint-disable-next-line react-refresh/only-export-components
+export const initializeLocalStorage = () => {
+  const accountInLocalStorage = localStorage.getItem("account");
+  const signOutInLocalStorage = localStorage.getItem("sign-out");
+  let parsedAccount;
+  let parsedSignOut;
+
+  if (!accountInLocalStorage) {
+    localStorage.setItem("account", JSON.stringify({}));
+    parsedAccount = {};
+  } else {
+    parsedAccount = JSON.parse(accountInLocalStorage);
+  }
+
+  if (!signOutInLocalStorage) {
+    localStorage.setItem("sign-out", JSON.stringify(false));
+    parsedSignOut = false;
+  } else {
+    parsedSignOut = JSON.parse(signOutInLocalStorage);
+  }
+};
+
 export const ShoppingCartProvider = ({ children }) => {
+  // My account
+  const [account, setAccount] = useState({});
+
+  // My Sign out
+  const [signOut, setSignOut] = useState(false);
+
   // Get Products
   const [items, setItems] = useState(null);
   const [filteredItems, setFilteredItems] = useState(null);
@@ -82,6 +110,9 @@ export const ShoppingCartProvider = ({ children }) => {
       );
     if (!searchByTitle && !searchByCategory)
       setFilteredItems(filterBy(null, items, searchByTitle, searchByCategory));
+    return () => {
+      setSearchByTitle(null);
+    };
   }, [items, searchByCategory, searchByTitle]);
 
   // console.log("filteredItems:", filteredItems);
@@ -141,6 +172,11 @@ export const ShoppingCartProvider = ({ children }) => {
 
         order,
         setOrder,
+
+        account,
+        setAccount,
+        signOut,
+        setSignOut,
       }}
     >
       {children}
